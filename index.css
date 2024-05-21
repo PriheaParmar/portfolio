@@ -1,0 +1,387 @@
+body {
+    background: #080020;
+    margin: 0;
+    padding: 0;
+}
+
+/* For Chrome, Edge, and Safari */
+::-webkit-scrollbar {
+    width: 2px;
+    height: 3px;
+}
+
+::-webkit-scrollbar-track {
+    background: #080020;
+}
+
+::-webkit-scrollbar-thumb {
+    background: orange;
+    border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: orange;
+}
+
+.menu {
+    font-family: 'Federo';
+    position: fixed;
+    font-size: 20px;
+    top: 0;
+    opacity: 0;
+    height: 10vh;
+    width: 100%;
+    padding: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    animation: fadeInAnimation 3s ease forwards;
+}
+
+.menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    position: relative;
+}
+
+.menu li {
+    margin: 0 20px;
+}
+
+.menu a {
+    color: white;
+    text-decoration: none;
+    padding: 14px 20px;
+    position: relative;
+    display: inline-block;
+    transition: text-shadow 2s, color 1s;
+}
+
+.menu a:hover,
+.menu a.active {
+    color: orange  ;
+    text-shadow: 2px 1px 10px white;
+}
+
+.underline {
+    position: absolute;
+    top: 10vh;
+    margin-left: 155vh;
+    height: 1px;
+    background: orange;
+    transition: 0.3s ease-in-out;
+}
+
+.logo {
+    height: 20vh;
+    margin-left: -4vw;
+}
+
+section {
+    height: 70vh;
+    padding: 60px 20px;
+    margin-top: 60px;
+}
+
+.box-1 {
+    width: 60vw;
+    padding: 10px;
+    z-index: -3;
+    margin-top: -5vh;
+    position: relative;
+    height: 90vh;
+    padding-top:10vh ;
+    margin-top: -10vh;
+    padding-left:5vw ;
+    margin-left: -5vw;
+    overflow: hidden;
+}
+
+.image-1-1 {
+    height: 117vh;
+    width: 30vw;
+    transform: rotate(121deg) scaleX(-1);
+    margin-left: 15vw;
+    position: absolute;
+    filter: blur(25px);
+    opacity: 55%;
+    z-index: 1000;  animation: floatFadeInAnimation 1s ease forwards, fadeInAnimation 1s ease;
+    position: absolute;
+}
+.image-1-2 {
+    height: 115vh;
+    transform: rotate(121deg) scaleX(-1);
+    margin-left: 15vw;
+    mix-blend-mode: overlay;
+    position: absolute;
+    opacity: 1;
+    z-index: 1000;
+    animation: floatFadeInAnimation 1s ease forwards, fadeInAnimation 1s ease;
+    position: absolute;
+}
+.line {
+    width: 150vh;
+    border-top: 1px solid white;
+    position: absolute;
+    color: white;
+    margin-left: 10vh;
+}
+@keyframes fadeInAnimation {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes floatFadeInAnimation {
+    from {
+        transform: rotate(121deg) scaleX(-1) translate(-100%, -40%);
+    }
+    to {
+        transform: rotate(121deg) scaleX(-1) translate(5%, 5%);
+
+    }
+}
+#section1{
+    display: flex;
+    flex-direction: row;
+}
+.box-1-2{
+    height: 50vh;
+    width: 30vw;
+    /* border: 2px solid white; */
+    color: white;
+    font-family: 'federo';
+    text-align: right;
+    margin-top: 10vh;
+    line-height: 0.2;
+    margin-left: 5vw;
+}
+.hey-2{
+    position: absolute;
+    font-size: 60px;
+    opacity: 10%;
+    text-align: right;
+    margin-top: -6vh;
+    margin-left: 25vw;
+}
+.p-2{
+    position: absolute;
+    font-size: 60px;
+    opacity: 10%;
+    text-align: right;
+    margin-top: -1.5vh;
+    margin-left: 12vw;
+}
+span{
+    mix-blend-mode: plus-lighter;
+}
+.typewriter {
+    text-align: center;
+}
+
+.typewriter {
+    text-align: right;
+    margin-right: 1vw;
+}
+
+/* Animation */
+@keyframes typewriter {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+/* Cursor blinking */
+@keyframes blink {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: orange;
+    }
+}
+
+#typewriter-text {
+    display: inline-block;
+    overflow: hidden;
+    border-right: .15em solid black;
+    white-space: nowrap;
+    margin: 0 auto;
+    padding: 10px;
+    /* Animation */
+    animation: typewriter 2s steps(20) 1s 1 normal both,
+                blink 1s steps(1) infinite;
+}
+.resume{
+    border: double 1px white;
+    padding: 25px;
+    margin-top: 20vh;
+    margin-left: 45vh;
+    transition: color 1s, background 1s, box-shadow 1s;
+}
+.resume a{
+    color: white;
+    text-decoration: none;
+}
+.resume:hover{
+    background: rgba(255, 166, 0, 0.454);
+    box-shadow: 1px 1px 20px rgba(255, 166, 0, 0.486);
+}
+/* Add this CSS for the project text animation */
+#section2 .project-text {
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+}
+
+#section2.in-view .project-text {
+    opacity: 1;
+}
+.head-2{
+    background: #080020;
+    z-index: 100;
+    width: 15vw;
+    position: relative;
+    color: white;
+    font-family: 'federo';
+    font-weight: bolder;
+    font-size: 50px;
+}
+.box-container-2{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20vh;
+    height: 80vh;
+}
+.box-2-1{
+    height: 45vh;
+    width: 17vw;
+    background: #000;
+    object-fit: cover;
+    overflow: hidden;
+}
+.box-2{
+    margin-top: 15vh;
+    height: 45vh;
+    width: 17vw;
+}
+.line-2{
+    border-left: 2px solid white;
+    opacity: 20%;
+    height: 50vh;
+    margin-top: 5vh;
+}
+.wave-2{
+    height: 16vw;
+    position: relative;
+    z-index: 100;
+    margin-top: -20vh;
+    opacity: 80%;
+}
+.image-2-1{
+    height: 45vh;
+    width: 17vw;
+    object-fit: cover;
+    position: absolute;
+    opacity: 70%;
+
+}
+.image-2-2{
+    height: 46vh;
+    margin-top: -1vh;
+    margin-left: -0.5vw;
+    width: 18vw;
+    object-fit: cover;
+    position: absolute;
+    opacity: 45%;
+    filter: blur(6px);
+    z-index: -1;
+}
+.title-2{
+    font-size: 35px;
+    color: white;
+    font-family: 'BELLEZA';
+    isolation: isolate;
+    margin: auto;
+    text-decoration: none;
+    height: 26vh;
+    padding-top: 19vh;
+    background: #00000070;
+    width: 17vw;
+    text-align: center;
+    font-weight: bold;
+    transition: background 1s;
+}
+.title-2:hover{
+    background: none;
+    
+}
+
+.title-2 a:active{
+    color: white;
+    text-decoration: none;
+}
+a{
+    text-decoration: none;
+}
+.box-container-3{
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: space-around;
+    margin-top: 70vh;
+    font-size: 20px;
+    font-family: 'belleza';
+}
+.box-3-1{
+    height: 9vh;
+    width: 100vw;
+    margin-left: -5vw;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px double white;
+    background: #00000034;
+    padding: 30px;
+}
+.box-3-2{
+    height: 15vh;
+    width: 100vw;
+    color: white;
+    display: flex;
+    justify-content: space-around;
+    width: 30vw ;
+    margin: auto;
+}
+.contact{
+    height: 7vh;
+    border-radius: 100px;
+    transition: mix-blend-mode 1s, box-shadow 1s;
+}
+.image-3{
+    isolation: isolate;
+z-index: 1000;
+height: 10vh;
+}
+.neon-5{
+    background: radial-gradient(circle, #9D1374, #9D1374, #800F5E, #370628);
+    height: 60vh;
+    margin-top: -70vh;
+    width: 90vw;
+    border-radius: 100%;
+    filter: blur(200px);
+    opacity: 20%;
+    z-index: -1;
+    position: absolute;
+}
+.contact:hover{
+    mix-blend-mode: luminosity;
+    box-shadow: 1px 1px 5px white;
+}

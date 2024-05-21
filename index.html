@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PriyaParmar</title>
+    <link rel="stylesheet" href="prihea.css">
+    <link href='https://fonts.googleapis.com/css?family=Belleza' rel='stylesheet'>
+    <link href='https://fonts.googleapis.com/css?family=Federo' rel='stylesheet'>
+</head>
+<body>
+    <nav class="menu">
+        <a href="prihea.html" class="menu-logo">
+            <img src="logo.png" class="logo">
+        </a>
+        
+        <ul>
+            <li>a<a href="#section1" class="menu-link active">About me</a></li>
+            <li><a href="#section2" class="menu-link">Projects</a></li>
+            <li><a href="#section3" class="menu-link">Contact</a></li>
+        </ul>
+        <div class="underline"></div>
+        <div class="line"></div>
+    </nav>
+
+    <section id="section1">
+        <div class="box-1">
+            <img class="image-1-1" src="image-2.jpg">
+            <img class="image-1-2" src="image-2.jpg">
+        </div>
+        <div class="box-1-2">
+            <p style="font-size: 25px;
+            mix-blend-mode: plus-lighter;">HEY,</p>
+            <p class="hey-2"> <i>hey</i></p>
+            <p style="color: #080020;"> .</p>
+            <p class="p-2"> <i>this is priya,</i></p>
+            <span style="color: orange; font-size: 25px;">THIS IS PRIYA,</span>
+            <p style="color: #080020;"> .</p>
+            <p style="line-height: 1; opacity: 60%;"> I'm determined and creative individual with a never-give-up attitude towards my work. I am passionate about exploring new technologies and constantly seek to expand my knowledge in the tech world. My portfolio reflects my eagerness to learn and my dedication to excellence. Explore my journey and projects as I venture into the exciting world of technology.</p>
+            <div class="typewriter">
+                <h1 id="typewriter-text"></h1>
+            </div>
+            <div class="resume"><a href="Resume Prihea.pdf" download> MY RESUME</a></div>
+        </div>
+    </section>
+
+    <section id="section2">
+        <h2 class="head-2"> PROJECT</h2>
+        <div class="box-container-2">
+            <a href="web.html">
+                <div class="box-2-1">
+                    <img src="web.jpg" class="image-2-1">
+                    <img src="web.jpg" class="image-2-2">
+                    <P class="title-2">WEBSITES</P>
+                </div>
+            </a>
+            <div class="line-2"></div>
+            <a href="ui.html">
+                <div class="box-2">
+                    <img src="uiux.jpg" class="image-2-1" style="opacity: 50%;">
+                    <img src="uiux.jpg" class="image-2-2" style="opacity: 50%;">
+                    <P class="title-2">UI DESIGNS</P>
+                </div>
+            </a>
+            <div class="line-2"></div>
+            <a href="game.html">
+                <div class="box-2-1">
+                    <img src="game.jpg" class="image-2-1" style="opacity: 60%; mix-blend-mode: plus-lighter;">
+                    <img src="game.jpg" class="image-2-2">
+                    <p class="title-2">GAMES</p>
+                </div>
+            </a>
+            <div class="line-2"></div>
+            <a href="other.html">
+                <div class="box-2">
+                    <img src="other.jpg" class="image-2-1">
+                    <img src="other.jpg" class="image-2-2">
+                    <P class="title-2">OTHERS</P>
+                </div>
+            </a>
+        </div>
+        <img src="wave-2.png" class="wave-2">
+    </section>
+
+    <section id="section3" style="height: 90vh;">
+        <div class="box-container-3">
+            <div class="box-3-1">
+                <img src="logo.png" class="image-3">
+                <p  style="color: orange;">All rights reserved &copy; Prihea</p>
+                <p>made with Amor</p>
+            </div>
+            <div class="box-3-2">
+                <a href="priheaparmar@gmail.com">
+                    <img src="Circled Envelope.png" class="contact">
+                </a>
+                <a href="https://github.com/PriheaParmar">
+                    <img src="GitHub.png" class="contact">
+                </a>
+                <a href="https://www.instagram.com/prihea?igsh=MTFjZ3E2YmU0Mm5xOQ==">
+                    <img src="Instagram Circle.png" class="contact">
+                </a>
+                <a href="https://www.linkedin.com/in/prihea-parmar-1711142a4/">
+                    <img src="LinkedIn Circled.png" class="contact">
+                </a>
+            </div>
+        </div>
+        <div class="neon-5"></div>
+        
+    </section>
+
+ 
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const links = document.querySelectorAll('.menu-link');
+            const underline = document.querySelector('.underline');
+            const sections = document.querySelectorAll('section');
+
+            function moveUnderline(link) {
+                const linkRect = link.getBoundingClientRect();
+                const menuRect = document.querySelector('.menu ul').getBoundingClientRect();
+                const offsetLeft = linkRect.left - menuRect.left;
+                underline.style.width = `${linkRect.width}px`;
+                underline.style.transform = `translateX(${offsetLeft}px)`;
+            }
+
+            function updateActiveLink() {
+                let index = sections.length;
+
+                while (--index && window.scrollY + 50 < sections[index].offsetTop) {}
+
+                links.forEach(link => link.classList.remove('active'));
+                links[index].classList.add('active');
+                moveUnderline(links[index]);
+            }
+
+            links.forEach(link => {
+                link.addEventListener('click', function (e) {
+                    e.preventDefault();
+
+                    // Scroll to the section
+                    document.querySelector(this.getAttribute('href')).scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                });
+            });
+
+            // Set initial position of the underline
+            const activeLink = document.querySelector('.menu-link.active');
+            if (activeLink) {
+                moveUnderline(activeLink);
+            }
+
+            window.addEventListener('scroll', updateActiveLink);
+        });
+    </script>
+    <script>
+        const sentences = [
+            "I specialize in website design and development",
+            "Currently pursuing a BCA degree",
+            "I am also Proficient in graphic design",
+            "I am 19 years old",
+            "I hail from Ahmedabad",
+        ];
+
+        let currentSentenceIndex = 0;
+        let currentLetterIndex = 0;
+
+        function typeSentence() {
+            const textElement = document.getElementById('typewriter-text');
+            if (currentLetterIndex < sentences[currentSentenceIndex].length) {
+                textElement.textContent += sentences[currentSentenceIndex].charAt(currentLetterIndex);
+                currentLetterIndex++;
+                setTimeout(typeSentence, 100); // Adjust typing speed here
+            } else {
+                setTimeout(eraseSentence, 2000); // Delay before erasing
+            }
+        }
+
+        function eraseSentence() {
+            const textElement = document.getElementById('typewriter-text');
+            if (currentLetterIndex >= 0) {
+                textElement.textContent = sentences[currentSentenceIndex].substring(0, currentLetterIndex);
+                currentLetterIndex--;
+                setTimeout(eraseSentence, 50); // Adjust erasing speed here
+            } else {
+                currentSentenceIndex = (currentSentenceIndex + 1) % sentences.length; // Move to the next sentence
+                setTimeout(typeSentence, 500); // Delay before typing the next sentence
+            }
+        }
+
+        // Start typing
+        typeSentence();
+    </script>
+    <script>document.addEventListener('DOMContentLoaded', function () {
+        const logo = document.querySelector('.logo');
+        const projectsSection = document.getElementById('section2');
+    
+        function handleScroll() {
+            if (isInViewport(projectsSection)) {
+                projectsSection.classList.add('in-view');
+                logo.classList.add('logo-hidden');
+            } else {
+                projectsSection.classList.remove('in-view');
+                logo.classList.remove('logo-hidden');
+            }
+        }
+    
+        function isInViewport(element) {
+            const bounding = element.getBoundingClientRect();
+            return (
+                bounding.top >= 0 &&
+                bounding.left >= 0 &&
+                bounding.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
+                bounding.right <= (window.innerWidth || document.documentElement.clientWidth)
+            );
+        }
+    
+        window.addEventListener('scroll', handleScroll);
+    });
+    
+    </script>
+</body>
+</html>
